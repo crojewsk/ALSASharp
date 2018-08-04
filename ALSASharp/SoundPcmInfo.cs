@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace ALSASharp
 {
-	public class SoundPcmInfo
+    public class SoundPcmInfo
     {
         public IntPtr handle;
 

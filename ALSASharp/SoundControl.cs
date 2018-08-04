@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace ALSASharp
 {
-	public class SoundControl
+    public class SoundControl
     {
         public IntPtr handle;
 

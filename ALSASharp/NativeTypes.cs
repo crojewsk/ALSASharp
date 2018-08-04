@@ -7,8 +7,8 @@ namespace ALSASharp
         Playback,  // Playback stream
         Capture   // Capture stream
     }
-   
-	public static class DeviceNameHints
+
+    public static class DeviceNameHints
     {
         public const string NAME = "NAME";  // name of device
         public const string DESC = "DESC";  // description of device

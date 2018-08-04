@@ -4,25 +4,25 @@ using System.Runtime.InteropServices;
 
 namespace ALSASharp
 {
-	public class SoundCard
+    public class SoundCard
     {
         public int Id;
     }
 
     public class SoundCardCollection
     {
-		/// <summary>
-		/// Try to determine the next card.
+        /// <summary>
+        /// Try to determine the next card.
         /// </summary>
-		/// <param name="card">Card.</param>
-		/// <returns>Zero if success, otherwise a negative error code.</returns>
+        /// <param name="card">Card.</param>
+        /// <returns>Zero if success, otherwise a negative error code.</returns>
         public int Next(out int card)
         {
             return SoundNativeMethods.SoundCardNext(out card);
         }
     }
-   
-	public class SoundDeviceNameHint
+
+    public class SoundDeviceNameHint
     {
         IntPtr handle;
         public string[] Hints;
@@ -37,10 +37,10 @@ namespace ALSASharp
             {
                 throw new InvalidOperationException("SoundDeviceNameHint failed");
             }
-         
+
             //int stringLength = ((int)1) / Marshal.SizeOf(typeof(short));
-			// pointer to an array of IntPtr, each denoting separate string hint
-            if (buffer != IntPtr.Zero) 
+            // pointer to an array of IntPtr, each denoting separate string hint
+            if (buffer != IntPtr.Zero)
             {
                 size = Marshal.SizeOf(typeof(IntPtr));
                 while (true)
