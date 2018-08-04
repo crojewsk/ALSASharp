@@ -37,6 +37,7 @@
     <Compile Include="SoundControl.cs" />
     <Compile Include="SoundExtensionMethods.cs" />
     <Compile Include="SoundPcmInfo.cs" />
+    <Compile Include="SoundLogger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
