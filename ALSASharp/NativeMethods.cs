@@ -91,5 +91,28 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_pcm_stream_name")]
         internal static extern IntPtr SoundPcmStreamName(SoundPcmStreamType stream);
 
+        // SoundLogger - output
+
+        [DllImport("asound", EntryPoint = "snd_output_buffer_open")]
+        internal static extern int SoundOutputBufferOpen(out IntPtr outputp);
+
+        [DllImport("asound", EntryPoint = "snd_output_buffer_string")]
+        internal static extern uint SoundOutputBufferString(IntPtr output, out IntPtr buf);
+
+        [DllImport("asound", EntryPoint = "snd_output_close")]
+        internal static extern int SoundOutputClose(IntPtr output);
+
+        [DllImport("asound", EntryPoint = "snd_output_flush")]
+        internal static extern int SoundOutputFlush(IntPtr output);
+
+        [DllImport("asound", EntryPoint = "snd_output_putc")]
+        internal static extern int SoundOutputPutc(IntPtr output, int c);
+
+        [DllImport("asound", EntryPoint = "snd_output_puts")]
+        internal static extern int SoundOutputPuts(IntPtr output, string str);
+
+        [DllImport("asound", EntryPoint = "snd_output_stdio_open")]
+        internal static extern int SoundOutputStdioOpen(out IntPtr outputp, string file, string mode);
+
     }
 }
