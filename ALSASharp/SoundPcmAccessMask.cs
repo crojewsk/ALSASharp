@@ -39,10 +39,10 @@ namespace ALSASharp
         /// <returns>Shallow copy of this instance.</returns>
         public object Clone()
         {
-			var other = new SoundPcmAccessMask();
-			SoundNativeMethods.SoundPcmAccessMaskCopy(other.handle, this.handle);
+            var other = new SoundPcmAccessMask();
+            SoundNativeMethods.SoundPcmAccessMaskCopy(other.handle, this.handle);
 
-			return other;
+            return other;
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace ALSASharp
         /// <returns>Value indicating </returns>
         public bool IsSet(SoundPcmAccess val)
         {
-			return SoundNativeMethods.SoundPcmAccessMaskTest(handle, val) == 0;
+            return SoundNativeMethods.SoundPcmAccessMaskTest(handle, val) == 0;
         }
 
         /// <summary>
