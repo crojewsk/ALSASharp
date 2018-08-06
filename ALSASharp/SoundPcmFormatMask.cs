@@ -46,9 +46,9 @@ namespace ALSASharp
         }
 
         /// <summary>
-        /// Returns size of internal snd_pcm_access_mask_t.
+        /// Returns size of internal snd_pcm_format_mask_t.
         /// </summary>
-        /// <value>Size of internal snd_pcm_access_mask_t.</value>
+        /// <value>Size of internal snd_pcm_format_mask_t.</value>
         public uint Size
         {
             get
