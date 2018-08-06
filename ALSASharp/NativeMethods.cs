@@ -145,5 +145,37 @@ namespace ALSASharp
 
 		[DllImport("asound", EntryPoint = "snd_pcm_access_mask_reset")]
 		internal static extern void SoundPcmAccessMaskReset(IntPtr mask, SoundPcmAccess val);
+
+        // SoundPcmFormatMask
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_sizeof")]
+        internal static extern uint SoundPcmFormatMaskSizeOf();
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_malloc")]
+        internal static extern int SoundPcmFormatMaskMalloc(out IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_free")]
+        internal static extern void SoundPcmFormatMaskFree(IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_copy")]
+        internal static extern void SoundPcmFormatMaskCopy(IntPtr dst, IntPtr src);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_none")]
+        internal static extern void SoundPcmFormatMaskNone(IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_any")]
+        internal static extern void SoundPcmFormatMaskAny(IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_test")]
+        internal static extern int SoundPcmFormatMaskTest(IntPtr mask, SoundPcmFormat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_empty")]
+        internal static extern int SoundPcmFormatMaskEmpty(IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_set")]
+        internal static extern void SoundPcmFormatMaskSet(IntPtr mask, SoundPcmFormat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_mask_reset")]
+        internal static extern void SoundPcmFormatMaskReset(IntPtr mask, SoundPcmFormat val);
     }
 }
