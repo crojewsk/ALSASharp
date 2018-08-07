@@ -209,5 +209,68 @@ namespace ALSASharp
 
         [DllImport("asound", EntryPoint = "snd_pcm_subformat_mask_reset")]
         internal static extern void SoundPcmSubformatMaskReset(IntPtr mask, SoundPcmSubformat val);
+
+        // SoundExtensionMethods
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_signed")]
+        internal static extern int SoundPcmFormatSigned(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_unsigned")]
+        internal static extern int SoundPcmFormatUnsigned(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_linear")]
+        internal static extern int SoundPcmFormatLinear(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_float")]
+        internal static extern int SoundPcmFormatFloat(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_little_endian")]
+        internal static extern int SoundPcmFormatLittleEndian(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_big_endian")]
+        internal static extern int SoundPcmFormatBigEndian(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_cpu_endian")]
+        internal static extern int SoundPcmFormatCpuEndian(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_width")]
+        internal static extern int SoundPcmFormatWidth(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_physical_width")]
+        internal static extern int SoundPcmFormatPhysicalWidth(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_build_linear_format")]
+        internal static extern SoundPcmFormat SoundPcmBuildLinearFormat(int width, int pwidth,
+            [MarshalAs(UnmanagedType.I1)]bool unsigned, [MarshalAs(UnmanagedType.I1)]bool bigEndian);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_size")]
+        internal static extern uint SoundPcmFormatSize(SoundPcmFormat format, uint samples);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_silence")]
+        internal static extern byte SoundPcmFormatSilence(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_silence_16")]
+        internal static extern ushort SoundPcmFormatSilence16(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_silence_32")]
+        internal static extern uint SoundPcmFormatSilence32(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_silence_64")]
+        internal static extern ulong SoundPcmFormatSilence64(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_set_silence")]
+        internal static extern byte SoundPcmFormatSetSilence(SoundPcmFormat format, IntPtr buf, uint samples);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_bytes_to_frames")]
+        internal static extern byte SoundPcmBytesToFrames(IntPtr pcm, uint bytes);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_frames_to_bytes")]
+        internal static extern byte SoundPcmFramesToBytes(IntPtr pcm, uint frames);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_bytes_to_samples")]
+        internal static extern byte SoundPcmBytesToSamples(IntPtr pcm, uint bytes);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_samples_to_bytes")]
+        internal static extern byte SoundPcmSamplesToBytes(IntPtr pcm, uint samples);
     }
 }
