@@ -122,4 +122,10 @@ namespace ALSASharp
             }
         }
     }
+
+    // snd_pcm_subformat_t
+    public enum SoundPcmSubformat
+    {
+        STD // Standard
+    }
 }
