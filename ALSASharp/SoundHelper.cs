@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace ALSASharp
 {
-    public static class SoundExtensionMethods
+    public static class SoundHelper
     {
         public static string GetName(this SoundPcmStreamType stream)
         {

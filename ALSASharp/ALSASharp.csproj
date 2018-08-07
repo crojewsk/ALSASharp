@@ -35,7 +35,7 @@
     <Compile Include="NativeTypes.cs" />
     <Compile Include="SoundCard.cs" />
     <Compile Include="SoundControl.cs" />
-    <Compile Include="SoundExtensionMethods.cs" />
+    <Compile Include="SoundHelper.cs" />
     <Compile Include="SoundPcmInfo.cs" />
     <Compile Include="SoundLogger.cs" />
     <Compile Include="SoundPcm.cs" />

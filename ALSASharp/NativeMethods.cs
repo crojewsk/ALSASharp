@@ -83,14 +83,6 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevices_avail")]
         internal static extern uint SoundPcmInfoGetSubdevicesAvail(IntPtr ctl);
 
-        // SoundExtensionMethods
-
-        [DllImport("asound", EntryPoint = "snd_strerror")]
-        internal static extern IntPtr SoundStringError(int error);
-
-        [DllImport("asound", EntryPoint = "snd_pcm_stream_name")]
-        internal static extern IntPtr SoundPcmStreamName(SoundPcmStreamType stream);
-
         // SoundLogger - output
 
         [DllImport("asound", EntryPoint = "snd_output_buffer_open")]
@@ -210,7 +202,13 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_pcm_subformat_mask_reset")]
         internal static extern void SoundPcmSubformatMaskReset(IntPtr mask, SoundPcmSubformat val);
 
-        // SoundExtensionMethods
+        // SoundHelper
+
+        [DllImport("asound", EntryPoint = "snd_strerror")]
+        internal static extern IntPtr SoundStringError(int error);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_stream_name")]
+        internal static extern IntPtr SoundPcmStreamName(SoundPcmStreamType stream);
 
         [DllImport("asound", EntryPoint = "snd_pcm_format_signed")]
         internal static extern int SoundPcmFormatSigned(SoundPcmFormat format);
