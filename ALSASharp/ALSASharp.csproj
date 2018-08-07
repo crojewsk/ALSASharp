@@ -38,6 +38,10 @@
     <Compile Include="SoundExtensionMethods.cs" />
     <Compile Include="SoundPcmInfo.cs" />
     <Compile Include="SoundLogger.cs" />
+    <Compile Include="SoundPcm.cs" />
+    <Compile Include="SoundPcmAccessMask.cs" />
+    <Compile Include="SoundPcmFormatMask.cs" />
+    <Compile Include="SoundPcmSubformatMask.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
