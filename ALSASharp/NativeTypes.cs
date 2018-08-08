@@ -61,7 +61,7 @@ namespace ALSASharp
         U24_3LE,  // Unsigned 24bit Little Endian in 3bytes format
         U24_3BE,  // Unsigned 24bit Big Endian in 3bytes format
         S20_3LE,  // Signed 20bit Little Endian in 3bytes format
-        S20_3BE,  // Signed 20bit Big Endian in 3bytes format 
+        S20_3BE,  // Signed 20bit Big Endian in 3bytes format
         U20_3LE,  // Unsigned 20bit Little Endian in 3bytes format
         U20_3BE,  // Unsigned 20bit Big Endian in 3bytes format
         S18_3LE,  // Signed 18bit Little Endian in 3bytes format
@@ -127,5 +127,64 @@ namespace ALSASharp
     public enum SoundPcmSubformat
     {
         STD // Standard
+    }
+
+    // snd_pcm_type_t
+    public enum SoundPcmType
+    {
+        HW,     // Kernel level PCM
+        HOOKS,  // Hooked PCM
+        MULTI,  // One or more linked PCM with exclusive access to selected channels
+        FILE,   // File writing plugin
+        NULL,   // Null endpoint PCM
+        SHM,    // Shared memory client PCM
+        INET,   // INET client PCM (not yet implemented)
+        COPY,   // Copying plugin
+        LINEAR,     // Linear format conversion PCM
+        ALAW,   // A-Law format conversion PCM
+        MULAW,  // Mu-Law format conversion PCM
+        ADPCM,  // IMA-ADPCM format conversion PCM
+        RATE,   // Rate conversion PCM
+        ROUTE,  // Attenuated static route PCM
+        PLUG,   // Format adjusted PCM
+        SHARE,  // Sharing PCM
+        METER,  // Meter plugin
+        MIX,    // Mixing PCM
+        DROUTE,     // Attenuated dynamic route PCM (not yet implemented)
+        LBSERVER,   // Loopback server plugin (not yet implemented)
+        LINEAR_FLOAT,   // Linear Integer <-> Linear Float format conversion PCM
+        LADSPA,     // LADSPA integration plugin
+        DMIX,   // Direct Mixing plugin
+        JACK,   // Jack Audio Connection Kit plugin
+        DSNOOP,     // Direct Snooping plugin
+        DSHARE,     // Direct Sharing plugin
+        IEC958,     // IEC958 subframe plugin
+        SOFTVOL,    // Soft volume plugin
+        IOPLUG,     // External I/O plugin
+        EXTPLUG,    // External filter plugin
+        MMAP_EMUL   // Mmap-emulation plugin
+    }
+
+    // snd_pcm_tstamp_t
+    public enum SoundPcmTStamp
+    {
+        NONE,  // No timestamp
+        ENABLE,  // Update timestamp at every hardware position update
+        MMAP  // Equivalent with SND_PCM_TSTAMP_ENABLE, just for compatibility with older versions
+    }
+
+    // snd_pcm_state_t
+    public enum SoundPcmState
+    {
+        OPEN,  // Open
+        SETUP,     // Setup installed
+        PREPARED,  // Ready to start
+        RUNNING,   // Running
+        XRUN,  // Stopped: underrun (playback) or overrun (capture) detected
+        DRAINING,  // Draining: running (playback) or stopped (capture)
+        PAUSED,    // Paused
+        SUSPENDED,     // Hardware is suspended
+        DISCONNECTED,  // Hardware is disconnected
+        PRIVATE1  // Private - used internally in the library - do not use
     }
 }

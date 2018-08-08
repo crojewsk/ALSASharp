@@ -5,26 +5,80 @@ namespace ALSASharp
 {
     public static class SoundHelper
     {
-        public static string GetName(this SoundPcmStreamType stream)
-        {
-            IntPtr ptr = SoundNativeMethods.SoundPcmStreamName(stream);
-            return Marshal.PtrToStringAnsi(ptr);
-        }
-
         public static string GetErrorMessage(int error)
         {
             IntPtr ptr = SoundNativeMethods.SoundStringError(error);
             return Marshal.PtrToStringAnsi(ptr);
         }
 
+        public static string GetName(this SoundPcmType type)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmTypeName(type);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetName(this SoundPcmStreamType stream)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmStreamName(stream);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetName(this SoundPcmAccess access)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmAccessName(access);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetName(this SoundPcmFormat format)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmFormatName(format);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetDescription(this SoundPcmFormat format)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmFormatDescription(format);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetName(this SoundPcmSubformat format)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmSubformatName(format);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetDescription(this SoundPcmSubformat format)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmSubformatDescription(format);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static SoundPcmFormat StringToFormat(string name)
+        {
+            IntPtr ptr = Marshal.StringToHGlobalAuto(name);
+            return SoundNativeMethods.SoundPcmFormatValue(ptr);
+        }
+
+        public static string GetTStampModeName(this SoundPcmTStamp mode)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmTStampModeName(mode);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetName(this SoundPcmState state)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundPcmStateName(state);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
         public static bool IsSigned(this SoundPcmFormat format)
         {
-			int ret = SoundNativeMethods.SoundPcmFormatSigned(format);
-			if (ret < 0)
-				throw new InvalidOperationException(
+            int ret = SoundNativeMethods.SoundPcmFormatSigned(format);
+            if (ret < 0)
+                throw new InvalidOperationException(
                     string.Format("{0} is not a linear format: {1}", format, ret));
 
-			return ret == 1;
+            return ret == 1;
         }
 
         public static bool IsUnsigned(this SoundPcmFormat format)
@@ -39,7 +93,7 @@ namespace ALSASharp
 
         public static bool IsLinear(this SoundPcmFormat format)
         {
-			return SoundNativeMethods.SoundPcmFormatLinear(format) == 1;
+            return SoundNativeMethods.SoundPcmFormatLinear(format) == 1;
         }
 
         public static bool IsFloat(this SoundPcmFormat format)
@@ -94,17 +148,17 @@ namespace ALSASharp
                 throw new InvalidOperationException(
                     string.Format("Cannot retrieve physical width for {0}, {1}", format, ret));
 
-			return ret;
+            return ret;
         }
 
         public static SoundPcmFormat BuildLinearPcmFormat(int width, int pwidth, bool unsigned, bool bigEndian)
         {
-			return SoundNativeMethods.SoundPcmBuildLinearFormat(width, pwidth, unsigned, bigEndian);
+            return SoundNativeMethods.SoundPcmBuildLinearFormat(width, pwidth, unsigned, bigEndian);
         }
 
         public static uint GetSize(this SoundPcmFormat format, uint samples)
         {
-			return SoundNativeMethods.SoundPcmFormatSize(format, samples);
+            return SoundNativeMethods.SoundPcmFormatSize(format, samples);
         }
 
         public static byte GetSilence(this SoundPcmFormat format)
@@ -129,12 +183,12 @@ namespace ALSASharp
 
         public static int SetSilence(this SoundPcmFormat format, IntPtr buf, uint samples)
         {
-			return SoundNativeMethods.SoundPcmFormatSetSilence(format, buf, samples);
+            return SoundNativeMethods.SoundPcmFormatSetSilence(format, buf, samples);
         }
 
         public static uint BytesToFrames(this SoundPcm pcm, uint bytes)
         {
-			return SoundNativeMethods.SoundPcmBytesToFrames(pcm.handle, bytes);
+            return SoundNativeMethods.SoundPcmBytesToFrames(pcm.handle, bytes);
         }
 
         public static uint FramesToBytes(this SoundPcm pcm, uint frames)

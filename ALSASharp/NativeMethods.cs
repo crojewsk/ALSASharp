@@ -207,8 +207,35 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_strerror")]
         internal static extern IntPtr SoundStringError(int error);
 
+        [DllImport("asound", EntryPoint = "snd_pcm_type_name")]
+        internal static extern IntPtr SoundPcmTypeName(SoundPcmType type);
+
         [DllImport("asound", EntryPoint = "snd_pcm_stream_name")]
         internal static extern IntPtr SoundPcmStreamName(SoundPcmStreamType stream);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_access_name")]
+        internal static extern IntPtr SoundPcmAccessName(SoundPcmAccess access);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_name")]
+        internal static extern IntPtr SoundPcmFormatName(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_description")]
+        internal static extern IntPtr SoundPcmFormatDescription(SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_subformat_name")]
+        internal static extern IntPtr SoundPcmSubformatName(SoundPcmSubformat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_subformat_description")]
+        internal static extern IntPtr SoundPcmSubformatDescription(SoundPcmSubformat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_format_value")]
+        internal static extern SoundPcmFormat SoundPcmFormatValue(IntPtr name);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_tstamp_mode_name")]
+        internal static extern IntPtr SoundPcmTStampModeName(SoundPcmTStamp mode);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_state_name")]
+        internal static extern IntPtr SoundPcmStateName(SoundPcmState state);
 
         [DllImport("asound", EntryPoint = "snd_pcm_format_signed")]
         internal static extern int SoundPcmFormatSigned(SoundPcmFormat format);
