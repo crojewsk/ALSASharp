@@ -174,6 +174,14 @@ namespace ALSASharp
         MMAP  // Equivalent with SND_PCM_TSTAMP_ENABLE, just for compatibility with older versions
     }
 
+    // snd_pcm_tstamp_type_t
+    public enum SoundPcmTStampType
+    {
+        GETTIMEOFDAY,    // gettimeofday equivalent
+        MONOTONIC,   // posix_clock_monotonic equivalent
+        MONOTONIC_RAW   // monotonic_raw (no NTP)
+    }
+
     // snd_pcm_state_t
     public enum SoundPcmState
     {
