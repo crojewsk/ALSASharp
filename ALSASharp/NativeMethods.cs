@@ -389,5 +389,58 @@ namespace ALSASharp
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_silence_size")]
         internal static extern int SoundPcmSwParamsGetSilenceSize(IntPtr @params, IntPtr val);
+
+        // SoundPcmStatus
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_sizeof")]
+        internal static extern uint SoundPcmStatusSizeOf();
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_malloc")]
+        internal static extern int SoundPcmStatusMalloc(out IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_free")]
+        internal static extern void SoundPcmStatusFree(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_copy")]
+        internal static extern void SoundPcmStatusCopy(IntPtr dst, IntPtr src);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_state")]
+        internal static extern SoundPcmState SoundPcmStatusGetState(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_trigger_tstamp")]
+        internal static extern void SoundPcmStatusGetTriggerTStamp(IntPtr obj, IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_trigger_htstamp")]
+        internal static extern void SoundPcmStatusGetTriggerHTStamp(IntPtr obj, IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_tstamp")]
+        internal static extern void SoundPcmStatusGetTStamp(IntPtr obj, IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_htstamp")]
+        internal static extern void SoundPcmStatusGetHTStamp(IntPtr obj, IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_audio_htstamp")]
+        internal static extern void SoundPcmStatusGetAudioTStamp(IntPtr obj, IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_driver_htstamp")]
+        internal static extern void SoundPcmStatusGetDriverHTStamp(IntPtr obj, IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_audio_htstamp_report")]
+        internal static extern void SoundPcmStatusGetAudioHTReport(IntPtr obj, IntPtr audioTStampReport);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_audio_htstamp_config")]
+        internal static extern void SoundPcmStatusGetAudioHTConfig(IntPtr obj, IntPtr audioTStampConfig);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_delay")]
+        internal static extern int SoundPcmStatusGetDelay(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_avail")]
+        internal static extern int SoundPcmStatusGetAvail(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_avail_max")]
+        internal static extern int SoundPcmStatusGetAvailMax(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status_get_overrange")]
+        internal static extern int SoundPcmStatusGetOverrange(IntPtr obj);
     }
 }
