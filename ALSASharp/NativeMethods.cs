@@ -48,8 +48,59 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_ctl_pcm_next_device")]
         internal static extern int SoundControlPcmNextDevice(IntPtr ctl, out int device);
 
+        [DllImport("asound", EntryPoint = "snd_ctl_pcm_info")]
+        internal static extern int SoundControlPcmInfo(IntPtr ctl, IntPtr info);
+
         // SoundPcmInfo
-      
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_sizeof")]
+        internal static extern uint SoundPcmInfoSizeOf();
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_malloc")]
+        internal static extern int SoundPcmInfoMalloc(out IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_free")]
+        internal static extern void SoundPcmInfoFree(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_copy")]
+        internal static extern void SoundPcmInfoCopy(IntPtr dst, IntPtr src);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_device")]
+        internal static extern uint SoundPcmInfoGetDevice(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevice")]
+        internal static extern uint SoundPcmInfoGetSubdevice(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_stream")]
+        internal static extern SoundPcmStreamType SoundPcmInfoGetStream(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_card")]
+        internal static extern int SoundPcmInfoGetCard(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_id")]
+        internal static extern IntPtr SoundPcmInfoGetId(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_name")]
+        internal static extern IntPtr SoundPcmInfoGetName(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevice_name")]
+        internal static extern IntPtr SoundPcmInfoGetSubdeviceName(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_class")]
+        internal static extern SoundPcmClass SoundPcmInfoGetClass(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subclass")]
+        internal static extern SoundPcmSubclass SoundPcmInfoGetSubclass(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevices_count")]
+        internal static extern uint SoundPcmInfoGetSubdevicesCount(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevices_avail")]
+        internal static extern uint SoundPcmInfoGetSubdevicesAvail(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info_get_sync")]
+        internal static extern SoundPcmSyncId SoundPcmInfoGetSync(IntPtr obj);
+
         [DllImport("asound", EntryPoint = "snd_pcm_info_set_device")]
         internal static extern void SoundPcmInfoSetDevice(IntPtr obj, uint val);
 
@@ -58,30 +109,6 @@ namespace ALSASharp
 
         [DllImport("asound", EntryPoint = "snd_pcm_info_set_stream")]
         internal static extern void SoundPcmInfoSetStream(IntPtr obj, SoundPcmStreamType val);
-      
-        [DllImport("asound", EntryPoint = "snd_ctl_pcm_info")]
-        internal static extern int SoundControlPcmInfo(IntPtr ctl, IntPtr info);      
-
-        [DllImport("asound", EntryPoint = "snd_pcm_info_malloc")]
-        internal static extern int SoundPcmInfoMalloc(out IntPtr ptr);
-
-        [DllImport("asound", EntryPoint = "snd_pcm_info_free")]
-        internal static extern void SoundPcmInfoFree(IntPtr ptr);
-
-        [DllImport("asound", EntryPoint = "snd_pcm_info_get_id")]
-        internal static extern IntPtr SoundPcmInfoGetId(IntPtr ctl);
-
-        [DllImport("asound", EntryPoint = "snd_pcm_info_get_name")]
-        internal static extern IntPtr SoundPcmInfoGetName(IntPtr ctl);
-
-        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevice_name")]
-        internal static extern IntPtr SoundPcmInfoGetSubdeviceName(IntPtr ctl);
-
-        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevices_count")]
-        internal static extern uint SoundPcmInfoGetSubdevicesCount(IntPtr ctl);
-
-        [DllImport("asound", EntryPoint = "snd_pcm_info_get_subdevices_avail")]
-        internal static extern uint SoundPcmInfoGetSubdevicesAvail(IntPtr ctl);
 
         // SoundLogger - output
 
@@ -117,8 +144,8 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_free")]
         internal static extern void SoundPcmAccessMaskFree(IntPtr ptr);
 
-		[DllImport("asound", EntryPoint = "snd_pcm_access_mask_copy")]
-		internal static extern void SoundPcmAccessMaskCopy(IntPtr dst, IntPtr src);
+        [DllImport("asound", EntryPoint = "snd_pcm_access_mask_copy")]
+        internal static extern void SoundPcmAccessMaskCopy(IntPtr dst, IntPtr src);
 
         [DllImport("asound", EntryPoint = "snd_pcm_access_mask_none")]
         internal static extern void SoundPcmAccessMaskNone(IntPtr mask);
@@ -135,8 +162,8 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_pcm_access_mask_set")]
         internal static extern void SoundPcmAccessMaskSet(IntPtr mask, SoundPcmAccess val);
 
-		[DllImport("asound", EntryPoint = "snd_pcm_access_mask_reset")]
-		internal static extern void SoundPcmAccessMaskReset(IntPtr mask, SoundPcmAccess val);
+        [DllImport("asound", EntryPoint = "snd_pcm_access_mask_reset")]
+        internal static extern void SoundPcmAccessMaskReset(IntPtr mask, SoundPcmAccess val);
 
         // SoundPcmFormatMask
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace ALSASharp
 {
@@ -186,5 +187,36 @@ namespace ALSASharp
         SUSPENDED,     // Hardware is suspended
         DISCONNECTED,  // Hardware is disconnected
         PRIVATE1  // Private - used internally in the library - do not use
+    }
+
+    // snd_pcm_class_t
+    public enum SoundPcmClass
+    {
+        GENERIC,   // standard device
+        MULTI,     // multichannel device
+        MODEM,     // software modem device
+        DIGITIZER     // digitizer device
+    }
+
+    // snd_pcm_subclass_t
+    public enum SoundPcmSubclass
+    {
+        GENERIC_MIX,    // subdevices are mixed together
+        MULTI_MIX  // multichannel subdevices are mixed together
+    }
+
+    // snd_pcm_sync_id_t
+    [StructLayout(LayoutKind.Explicit)]
+    public struct SoundPcmSyncId
+    {
+        [FieldOffset(0)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        byte[] id;
+        [FieldOffset(0)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        ushort[] id16;
+        [FieldOffset(0)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        uint[] id32;
     }
 }
