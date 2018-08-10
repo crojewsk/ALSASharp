@@ -220,11 +220,97 @@ namespace ALSASharp
         [FieldOffset(0)]
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         byte[] id;
+
         [FieldOffset(0)]
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         ushort[] id16;
+
         [FieldOffset(0)]
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         uint[] id32;
+    }
+
+    // snd_timestamp_t aka timeval
+    [StructLayout(LayoutKind.Sequential)]
+    public struct SoundTimeStamp
+    {
+        public long tvSec;     /* seconds */
+        public int tvUsec;    /* microseconds */
+    }
+
+    // snd_htimestamp_t aka timespec
+    [StructLayout(LayoutKind.Sequential)]
+    public struct SoundHTimeStamp
+    {
+        public long tvSec;     /* seconds */
+        public int tvNsec;    /* nanoseconds */
+    }
+
+    // snd_pcm_audio_tstamp_report_t;
+    [StructLayout(LayoutKind.Explicit)]
+    public struct SoundPcmAudioTStampReport
+    {
+        [FieldOffset(0)]
+        private uint valid;
+
+        [FieldOffset(0)]
+        private uint actualType;
+
+        [FieldOffset(0)]
+        private uint accuracyReport;
+
+        [FieldOffset(4)]
+        public uint Accuracy;
+
+        public uint Valid
+        {
+            get
+            {
+                return valid & 0x1;
+            }
+        }
+
+        public uint ActualType
+        {
+            get
+            {
+                return (actualType >> 1) & 0xF;
+            }
+        }
+
+        public uint AccuracyReport
+        {
+            get
+            {
+                return (actualType >> 5) & 0x1;
+            }
+        }
+    }
+
+    // snd_pcm_audio_tstamp_config_t;
+    [StructLayout(LayoutKind.Explicit)]
+    public struct SoundPcmAudioTStampConfig
+    {
+        [FieldOffset(0)]
+        private uint typeRequested;
+
+        [FieldOffset(0)]
+        private uint reportDelay;
+
+        public uint TypeRequested
+        {
+            get
+            {
+                return typeRequested & 0xF;
+            }
+        }
+
+        public uint ReportDelay
+        {
+            get
+            {
+                return (reportDelay >> 4) & 0x1;
+            }
+        }
     }
 }

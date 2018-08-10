@@ -5,6 +5,24 @@ namespace ALSASharp
 {
     public static class SoundHelper
     {
+        public static DateTime ToDateTime(this SoundTimeStamp tstamp)
+        {
+            var dateTime = new DateTime(1970, 1, 1).ToLocalTime()
+                .AddSeconds(tstamp.tvSec)
+                .AddMilliseconds(tstamp.tvUsec);
+
+            return dateTime;
+        }
+
+        public static DateTime ToDateTime(this SoundHTimeStamp htstamp)
+        {
+            var dateTime = new DateTime(1970, 1, 1).ToLocalTime()
+                .AddSeconds(htstamp.tvSec)
+                .AddMilliseconds(htstamp.tvNsec);
+
+            return dateTime;
+        }
+
         public static string GetErrorMessage(int error)
         {
             IntPtr ptr = SoundNativeMethods.SoundStringError(error);
