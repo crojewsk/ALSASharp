@@ -35,7 +35,7 @@ namespace ALSASharp
             return Marshal.PtrToStringAnsi(ptr);
         }
 
-        public static string GetName(this SoundPcmStreamType stream)
+        public static string GetName(this SoundPcmStream stream)
         {
             IntPtr ptr = SoundNativeMethods.SoundPcmStreamName(stream);
             return Marshal.PtrToStringAnsi(ptr);
