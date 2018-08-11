@@ -6,7 +6,12 @@ namespace ALSASharp
 {
     public class SoundCard
     {
-        public int Id;
+        public readonly uint Id;
+
+        public SoundCard(uint dev)
+        {
+			Id = dev;
+        }
     }
 
     public class SoundCardCollection
