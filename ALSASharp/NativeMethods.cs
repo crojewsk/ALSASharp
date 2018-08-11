@@ -72,7 +72,7 @@ namespace ALSASharp
         internal static extern uint SoundPcmInfoGetSubdevice(IntPtr obj);
 
         [DllImport("asound", EntryPoint = "snd_pcm_info_get_stream")]
-        internal static extern SoundPcmStreamType SoundPcmInfoGetStream(IntPtr obj);
+        internal static extern SoundPcmStream SoundPcmInfoGetStream(IntPtr obj);
 
         [DllImport("asound", EntryPoint = "snd_pcm_info_get_card")]
         internal static extern int SoundPcmInfoGetCard(IntPtr obj);
@@ -108,7 +108,7 @@ namespace ALSASharp
         internal static extern void SoundPcmInfoSetSubdevice(IntPtr obj, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_info_set_stream")]
-        internal static extern void SoundPcmInfoSetStream(IntPtr obj, SoundPcmStreamType val);
+        internal static extern void SoundPcmInfoSetStream(IntPtr obj, SoundPcmStream val);
 
         // SoundLogger - output
 
@@ -238,7 +238,7 @@ namespace ALSASharp
         internal static extern IntPtr SoundPcmTypeName(SoundPcmType type);
 
         [DllImport("asound", EntryPoint = "snd_pcm_stream_name")]
-        internal static extern IntPtr SoundPcmStreamName(SoundPcmStreamType stream);
+        internal static extern IntPtr SoundPcmStreamName(SoundPcmStream stream);
 
         [DllImport("asound", EntryPoint = "snd_pcm_access_name")]
         internal static extern IntPtr SoundPcmAccessName(SoundPcmAccess access);
@@ -420,7 +420,7 @@ namespace ALSASharp
         internal static extern void SoundPcmStatusGetHTStamp(IntPtr obj, IntPtr ptr);
 
         [DllImport("asound", EntryPoint = "snd_pcm_status_get_audio_htstamp")]
-        internal static extern void SoundPcmStatusGetAudioTStamp(IntPtr obj, IntPtr ptr);
+        internal static extern void SoundPcmStatusGetAudioHTStamp(IntPtr obj, IntPtr ptr);
 
         [DllImport("asound", EntryPoint = "snd_pcm_status_get_driver_htstamp")]
         internal static extern void SoundPcmStatusGetDriverHTStamp(IntPtr obj, IntPtr ptr);

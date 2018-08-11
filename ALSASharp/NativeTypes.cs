@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace ALSASharp
 {
     // snd_pcm_stream_t
-    public enum SoundPcmStreamType
+    public enum SoundPcmStream
     {
         Playback,  // Playback stream
         Capture   // Capture stream
