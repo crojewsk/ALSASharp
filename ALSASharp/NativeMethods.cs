@@ -340,55 +340,55 @@ namespace ALSASharp
         internal static extern void SoundPcmSwParamsCopy(IntPtr dst, IntPtr src);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_boundary")]
-        internal static extern int SoundPcmSwParamsGetBoundary(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetBoundary(IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_tstamp_mode")]
         internal static extern int SoundPcmSwParamsSetTStampMode(IntPtr pcm, IntPtr @params, SoundPcmTStamp val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_tstamp_mode")]
-        internal static extern int SoundPcmSwParamsGetTStampMode(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetTStampMode(IntPtr @params, out SoundPcmTStamp val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_tstamp_type")]
         internal static extern int SoundPcmSwParamsSetTStampType(IntPtr pcm, IntPtr @params, SoundPcmTStampType val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_tstamp_type")]
-        internal static extern int SoundPcmSwParamsGetTStampType(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetTStampType(IntPtr @params, out SoundPcmTStampType val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_avail_min")]
-        internal static extern int SoundPcmSwParamsSetAvailMin(IntPtr pcm, IntPtr @params, ulong val);
+        internal static extern int SoundPcmSwParamsSetAvailMin(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_avail_min")]
-        internal static extern int SoundPcmSwParamsGetAvailMin(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetAvailMin(IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_period_event")]
         internal static extern int SoundPcmSwParamsSetPeriodEvent(IntPtr pcm, IntPtr @params, int val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_period_event")]
-        internal static extern int SoundPcmSwParamsGetPeriodEvent(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetPeriodEvent(IntPtr @params, out int val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_start_threshold")]
-        internal static extern int SoundPcmSwParamsSetStartThreshold(IntPtr pcm, IntPtr @params, ulong val);
+        internal static extern int SoundPcmSwParamsSetStartThreshold(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_start_threshold")]
-        internal static extern int SoundPcmSwParamsGetStartThreshold(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetStartThreshold(IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_stop_threshold")]
-        internal static extern int SoundPcmSwParamsSetStopThreshold(IntPtr pcm, IntPtr @params, ulong val);
+        internal static extern int SoundPcmSwParamsSetStopThreshold(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_stop_threshold")]
-        internal static extern int SoundPcmSwParamsGetStopThreshold(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetStopThreshold(IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_silence_threshold")]
-        internal static extern int SoundPcmSwParamsSetSilenceThreshold(IntPtr pcm, IntPtr @params, ulong val);
+        internal static extern int SoundPcmSwParamsSetSilenceThreshold(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_silence_threshold")]
-        internal static extern int SoundPcmSwParamsGetSilenceThreshold(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetSilenceThreshold(IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_set_silence_size")]
-        internal static extern int SoundPcmSwParamsSetSilenceSize(IntPtr pcm, IntPtr @params, ulong val);
+        internal static extern int SoundPcmSwParamsSetSilenceSize(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_sw_params_get_silence_size")]
-        internal static extern int SoundPcmSwParamsGetSilenceSize(IntPtr @params, IntPtr val);
+        internal static extern int SoundPcmSwParamsGetSilenceSize(IntPtr @params, out uint val);
 
         // SoundPcmStatus
 
