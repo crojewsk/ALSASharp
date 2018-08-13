@@ -77,7 +77,7 @@ namespace ALSASharp
             return SoundNativeMethods.SoundPcmFormatValue(ptr);
         }
 
-        public static string GetTStampModeName(this SoundPcmTStamp mode)
+        public static string GetName(this SoundPcmTStamp mode)
         {
             IntPtr ptr = SoundNativeMethods.SoundPcmTStampModeName(mode);
             return Marshal.PtrToStringAnsi(ptr);
