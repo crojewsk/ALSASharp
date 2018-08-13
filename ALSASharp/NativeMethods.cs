@@ -442,5 +442,414 @@ namespace ALSASharp
 
         [DllImport("asound", EntryPoint = "snd_pcm_status_get_overrange")]
         internal static extern int SoundPcmStatusGetOverrange(IntPtr obj);
+
+        // SoundPcmHwParams
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params")]
+        internal static extern int SoundPcmHwParams(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_dump")]
+        internal static extern int SoundPcmHwParamsDump(IntPtr @params, IntPtr @out);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_any")]
+        internal static extern int SoundPcmHwParamsAny(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_can_mmap_sample_resolution")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsCanMmapSampleResolution(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_is_double")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsIsDouble(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_is_batch")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsIsBatch(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_is_block_transfer")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsIsBlockTransfer(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_is_monotonic")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsIsMonotonic(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_can_overrange")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsCanOverrange(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_can_pause")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsCanPause(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_can_resume")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsCanResume(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_is_half_duplex")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsIsHalfDuplex(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_is_joint_duplex")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsIsJointDuplex(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_can_sync_start")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsCanSyncStart(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_can_disable_period_wakeup")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsCanPeriodWakeup(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_supports_audio_wallclock_ts")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsSupportsAudioWallClockTs(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_SupportsAudioTsType")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool SoundPcmHwParamsSupportsAudioTsType(IntPtr @params, int type);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_rate_numden")]
+        internal static extern int SoundPcmHwParamsGetRateNumden(IntPtr @params, out uint rateNum, out uint rateDen);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_sbits")]
+        internal static extern int SoundPcmHwParamsGetSbits(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_fifo_size")]
+        internal static extern int SoundPcmHwParamsGetFifoSize(IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_sizeof")]
+        internal static extern uint SoundPcmHwParamsSizeOf();
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_malloc")]
+        internal static extern int SoundPcmHwParamsMalloc(out IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_free")]
+        internal static extern void SoundPcmHwParamsFree(IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_copy")]
+        internal static extern void SoundPcmHwParamsCopy(IntPtr dst, IntPtr src);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_access")]
+        internal static extern int SoundPcmHwParamsGetAccess(IntPtr @params, out SoundPcmAccess val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_access")]
+        internal static extern int SoundPcmHwParamsTestAccess(IntPtr pcm, IntPtr @params, SoundPcmAccess val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access")]
+        internal static extern int SoundPcmHwParamsSetAccess(IntPtr pcm, IntPtr @params, SoundPcmAccess val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access_first")]
+        internal static extern int SoundPcmHwParamsSetAccessFirst(IntPtr pcm, IntPtr @params, out SoundPcmAccess val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access_last")]
+        internal static extern int SoundPcmHwParamsSetAccessLast(IntPtr pcm, IntPtr @params, out SoundPcmAccess val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access_mask")]
+        internal static extern int SoundPcmHwParamsSetAccessMask(IntPtr pcm, IntPtr @params, IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_access_mask")]
+        internal static extern int SoundPcmHwParamsGetAccessMask(IntPtr @params, IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_format")]
+        internal static extern int SoundPcmHwParamsGetFormat(IntPtr @params, out SoundPcmFormat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_format")]
+        internal static extern int SoundPcmHwParamsTestFormat(IntPtr pcm, IntPtr @params, SoundPcmFormat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_format")]
+        internal static extern int SoundPcmHwParamsSetFormat(IntPtr pcm, IntPtr @params, SoundPcmFormat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_format_first")]
+        internal static extern int SoundPcmHwParamsSetFormatFirst(IntPtr pcm, IntPtr @params, out SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_format_last")]
+        internal static extern int SoundPcmHwParamsSetFormatLast(IntPtr pcm, IntPtr @params, out SoundPcmFormat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_format_mask")]
+        internal static extern int SoundPcmHwParamsSetFormatMask(IntPtr pcm, IntPtr @params, IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_format_mask")]
+        internal static extern void SoundPcmHwParamsGetFormatMask(IntPtr @params, IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_subformat")]
+        internal static extern int SoundPcmHwParamsGetSubformat(IntPtr @params, out SoundPcmSubformat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_subformat")]
+        internal static extern int SoundPcmHwParamsTestSubformat(IntPtr pcm, IntPtr @params, SoundPcmSubformat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat")]
+        internal static extern int SoundPcmHwParamsSetSubformat(IntPtr pcm, IntPtr @params, SoundPcmSubformat val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat_first")]
+        internal static extern int SoundPcmHwParamsSetSubformatFirst(IntPtr pcm, IntPtr @params, out SoundPcmSubformat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat_last")]
+        internal static extern int SoundPcmHwParamsSetSubformatLast(IntPtr pcm, IntPtr @params, out SoundPcmSubformat format);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat_mask")]
+        internal static extern int SoundPcmHwParamsSetSubformatMask(IntPtr pcm, IntPtr @params, IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_subformat_mask")]
+        internal static extern void SoundPcmHwParamsGetSubformatMask(IntPtr @params, IntPtr mask);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_channels")]
+        internal static extern int SoundPcmHwParamsGetChannels(IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_channels_min")]
+        internal static extern int SoundPcmHwParamsGetChannelsMin(IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_channels_max")]
+        internal static extern int SoundPcmHwParamsGetChannelsMax(IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_channels")]
+        internal static extern int SoundPcmHwParamsTestChannels(IntPtr pcm, IntPtr @params, uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels")]
+        internal static extern int SoundPcmHwParamsSetChannels(IntPtr pcm, IntPtr @params, uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_min")]
+        internal static extern int SoundPcmHwParamsSetChannelsMin(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_max")]
+        internal static extern int SoundPcmHwParamsSetChannelsMax(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_minmax")]
+        internal static extern int SoundPcmHwParamsSetChannelsMinMax(IntPtr pcm, IntPtr @params, ref uint min, ref uint max);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_near")]
+        internal static extern int SoundPcmHwParamsSetChannelsNear(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_first")]
+        internal static extern int SoundPcmHwParamsSetChannelsFirst(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_last")]
+        internal static extern int SoundPcmHwParamsSetChannelsLast(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_rate")]
+        internal static extern int SoundPcmHwParamsGetRate(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_rate_min")]
+        internal static extern int SoundPcmHwParamsGetRateMin(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_rate_max")]
+        internal static extern int SoundPcmHwParamsGetRateMax(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_rate")]
+        internal static extern int SoundPcmHwParamsTestRate(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate")]
+        internal static extern int SoundPcmHwParamsSetRate(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_min")]
+        internal static extern int SoundPcmHwParamsSetRateMin(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_max")]
+        internal static extern int SoundPcmHwParamsSetRateMax(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_minmax")]
+        internal static extern int SoundPcmHwParamsSetRateMinMax(IntPtr pcm, IntPtr @params, ref uint min, ref int mindir, ref uint max, ref int maxdir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_near")]
+        internal static extern int SoundPcmHwParamsSetRateNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_first")]
+        internal static extern int SoundPcmHwParamsSetRateFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_last")]
+        internal static extern int SoundPcmHwParamsSetRateLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_resample")]
+        internal static extern int SoundPcmHwParamsSetRateResample(IntPtr pcm, IntPtr @params, uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_rate_resample")]
+        internal static extern int SoundPcmHwParamsGetRateResample(IntPtr pcm, IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_export_buffer")]
+        internal static extern int SoundPcmHwParamsSetExportBuffer(IntPtr pcm, IntPtr @params, uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_export_buffer")]
+        internal static extern int SoundPcmHwParamsGetExportBuffer(IntPtr pcm, IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_wakeup")]
+        internal static extern int SoundPcmHwParamsSetPeriodWakeup(IntPtr pcm, IntPtr @params, uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_period_wakeup")]
+        internal static extern int SoundPcmHwParamsGetPeriodWakeup(IntPtr pcm, IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_period_time")]
+        internal static extern int SoundPcmHwParamsGetPeriodTime(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_period_time_min")]
+        internal static extern int SoundPcmHwParamsGetPeriodTimeMin(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_period_time_max")]
+        internal static extern int SoundPcmHwParamsGetPeriodTimeMax(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_period_time")]
+        internal static extern int SoundPcmHwParamsTestPeriodTime(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_time")]
+        internal static extern int SoundPcmHwParamsSetPeriodTime(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_time_min")]
+        internal static extern int SoundPcmHwParamsSetPeriodTimeMin(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_time_max")]
+        internal static extern int SoundPcmHwParamsSetPeriodTimeMax(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_time_minmax")]
+        internal static extern int SoundPcmHwParamsSetPeriodTimeMinMax(IntPtr pcm, IntPtr @params, ref uint min, ref int mindir, ref uint max, ref int maxdir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_time_near")]
+        internal static extern int SoundPcmHwParamsSetPeriodTimeNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_time_first")]
+        internal static extern int SoundPcmHwParamsSetPeriodTimeFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_time_last")]
+        internal static extern int SoundPcmHwParamsSetPeriodTimeLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_period_size")]
+        internal static extern int SoundPcmHwParamsGetPeriodSize(IntPtr @params, out uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_period_size_min")]
+        internal static extern int SoundPcmHwParamsGetPeriodSizeMin(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_period_size_max")]
+        internal static extern int SoundPcmHwParamsGetPeriodSizeMax(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_period_size")]
+        internal static extern int SoundPcmHwParamsTestPeriodSize(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size")]
+        internal static extern int SoundPcmHwParamsSetPeriodSize(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_min")]
+        internal static extern int SoundPcmHwParamsSetPeriodSizeMin(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_max")]
+        internal static extern int SoundPcmHwParamsSetPeriodSizeMax(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_minmax")]
+        internal static extern int SoundPcmHwParamsSetPeriodSizeMinMax(IntPtr pcm, IntPtr @params, ref uint min, ref int mindir, ref uint max, ref int maxdir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_near")]
+        internal static extern int SoundPcmHwParamsSetPeriodSizeNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_first")]
+        internal static extern int SoundPcmHwParamsSetPeriodSizeFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_last")]
+        internal static extern int SoundPcmHwParamsSetPeriodSizeLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_integer")]
+        internal static extern int SoundPcmHwParamsSetPeriodSizeInteger(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_periods")]
+        internal static extern int SoundPcmHwParamsGetPeriods(IntPtr @params, out uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_periods_min")]
+        internal static extern int SoundPcmHwParamsGetPeriodsMin(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_periods_max")]
+        internal static extern int SoundPcmHwParamsGetPeriodsMax(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_periods")]
+        internal static extern int SoundPcmHwParamsTestPeriods(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods")]
+        internal static extern int SoundPcmHwParamsSetPeriods(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods_min")]
+        internal static extern int SoundPcmHwParamsSetPeriodsMin(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods_max")]
+        internal static extern int SoundPcmHwParamsSetPeriodsMax(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods_minmax")]
+        internal static extern int SoundPcmHwParamsSetPeriodsMinMax(IntPtr pcm, IntPtr @params, ref uint min, ref int mindir, ref uint max, ref int maxdir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods_near")]
+        internal static extern int SoundPcmHwParamsSetPeriodsNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods_first")]
+        internal static extern int SoundPcmHwParamsSetPeriodsFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods_last")]
+        internal static extern int SoundPcmHwParamsSetPeriodsLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_periods_integer")]
+        internal static extern int SoundPcmHwParamsSetPeriodsInteger(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_buffer_time")]
+        internal static extern int SoundPcmHwParamsGetBufferTime(IntPtr @params, out uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_buffer_time_min")]
+        internal static extern int SoundPcmHwParamsGetBufferTimeMin(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_buffer_time_max")]
+        internal static extern int SoundPcmHwParamsGetBufferTimeMax(IntPtr @params, out uint val,  ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_buffer_time")]
+        internal static extern int SoundPcmHwParamsTestBufferTime(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time")]
+        internal static extern int SoundPcmHwParamsSetBufferTime(IntPtr pcm, IntPtr @params, uint val, int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_min")]
+        internal static extern int SoundPcmHwParamsSetBufferTimeMin(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_max")]
+        internal static extern int SoundPcmHwParamsSetBufferTimeMax(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_minmax")]
+        internal static extern int SoundPcmHwParamsSetBufferTimeMinMax(IntPtr pcm, IntPtr @params, ref uint min, ref int mindir, ref uint max, ref int maxdir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_near")]
+        internal static extern int SoundPcmHwParamsSetBufferTimeNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_first")]
+        internal static extern int SoundPcmHwParamsSetBufferTimeFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_last")]
+        internal static extern int SoundPcmHwParamsSetBufferTimeLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_buffer_size")]
+        internal static extern int SoundPcmHwParamsGetBufferSize(IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_buffer_size_min")]
+        internal static extern int SoundPcmHwParamsGetBufferSizeMin(IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_buffer_size_max")]
+        internal static extern int SoundPcmHwParamsGetBufferSizeMax(IntPtr @params, out uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_buffer_size")]
+        internal static extern int SoundPcmHwParamsTestBufferSize(IntPtr pcm, IntPtr @params, uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_size")]
+        internal static extern int SoundPcmHwParamsSetBufferSize(IntPtr pcm, IntPtr @params, uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_size_min")]
+        internal static extern int SoundPcmHwParamsSetBufferSizeMin(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_size_max")]
+        internal static extern int SoundPcmHwParamsSetBufferSizeMax(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_size_minmax")]
+        internal static extern int SoundPcmHwParamsSetBufferSizeMinMax(IntPtr pcm, IntPtr @params, ref uint min, ref uint max);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_size_near")]
+        internal static extern int SoundPcmHwParamsSetBufferSizeNear(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_size_first")]
+        internal static extern int SoundPcmHwParamsSetBufferSizeFirst(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_size_last")]
+        internal static extern int SoundPcmHwParamsSetBufferSizeLast(IntPtr pcm, IntPtr @params, ref uint val);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_min_align")]
+        internal static extern int SoundPcmHwParamsGetMinAlign(IntPtr @params, out uint val);
     }
 }
