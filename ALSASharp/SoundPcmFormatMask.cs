@@ -5,10 +5,8 @@ namespace ALSASharp
     /// <summary>
     /// Sound pcm format mask.
     /// </summary>
-    public class SoundPcmFormatMask : ICloneable, IDisposable
+    public class SoundPcmFormatMask : UnmanagedObject, ICloneable
     {
-        internal IntPtr handle;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ALSASharp.SoundPcmFormatMask"/> class.
         /// </summary>
@@ -34,7 +32,7 @@ namespace ALSASharp
         /// <summary>
         /// Releases all resource used by the <see cref="T:ALSASharp.SoundPcmFormatMask"/> object.
         /// </summary>
-        public void Dispose()
+        public override void Dispose()
         {
             if (handle != IntPtr.Zero)
             {
