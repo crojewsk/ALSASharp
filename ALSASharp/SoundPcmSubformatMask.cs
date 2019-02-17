@@ -12,13 +12,23 @@ namespace ALSASharp
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ALSASharp.SoundPcmSubformatMask"/> class.
         /// </summary>
-        public SoundPcmSubformatMask()
+        public SoundPcmSubformatMask(IntPtr ptr)
         {
-            SoundNativeMethods.SoundPcmSubformatMaskMalloc(out handle);
-            if (handle == IntPtr.Zero)
+            if (ptr == IntPtr.Zero)
             {
-                throw new OutOfMemoryException();
+                SoundNativeMethods.SoundPcmSubformatMaskMalloc(out handle);
+                if (handle == IntPtr.Zero)
+                    throw new OutOfMemoryException();
             }
+            else
+            {
+                handle = ptr;
+            }
+        }
+
+        public SoundPcmSubformatMask()
+            : this(IntPtr.Zero)
+        {
         }
 
         /// <summary>

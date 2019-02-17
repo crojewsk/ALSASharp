@@ -12,13 +12,23 @@ namespace ALSASharp
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ALSASharp.SoundPcmFormatMask"/> class.
         /// </summary>
-        public SoundPcmFormatMask()
+        public SoundPcmFormatMask(IntPtr ptr)
         {
-            SoundNativeMethods.SoundPcmFormatMaskMalloc(out handle);
-            if (handle == IntPtr.Zero)
+            if (ptr == IntPtr.Zero)
             {
-                throw new OutOfMemoryException();
+                SoundNativeMethods.SoundPcmFormatMaskMalloc(out handle);
+                if (handle == IntPtr.Zero)
+                    throw new OutOfMemoryException();
             }
+            else
+            {
+                handle = ptr;
+            }
+        }
+
+        public SoundPcmFormatMask()
+            : this(IntPtr.Zero)
+        {
         }
 
         /// <summary>
