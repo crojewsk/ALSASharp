@@ -44,6 +44,7 @@
     <Compile Include="SoundPcmSubformatMask.cs" />
     <Compile Include="SoundPcmStatus.cs" />
     <Compile Include="SoundPcmHwBaseParam.cs" />
+    <Compile Include="UnmanagedObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
