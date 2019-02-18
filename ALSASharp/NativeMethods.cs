@@ -574,25 +574,25 @@ namespace ALSASharp
         internal static extern void SoundPcmHwParamsGetFormatMask(IntPtr @params, out IntPtr mask);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_subformat")]
-        internal static extern int SoundPcmHwParamsGetSubformat(IntPtr @params, out SoundPcmSubformat val);
+        internal static extern int SoundPcmHwParamsGetSubformat(IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_subformat")]
-        internal static extern int SoundPcmHwParamsTestSubformat(IntPtr pcm, IntPtr @params, SoundPcmSubformat val);
+        internal static extern int SoundPcmHwParamsTestSubformat(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat")]
-        internal static extern int SoundPcmHwParamsSetSubformat(IntPtr pcm, IntPtr @params, SoundPcmSubformat val);
+        internal static extern int SoundPcmHwParamsSetSubformat(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat_first")]
-        internal static extern int SoundPcmHwParamsSetSubformatFirst(IntPtr pcm, IntPtr @params, out SoundPcmSubformat format);
+        internal static extern int SoundPcmHwParamsSetSubformatFirst(IntPtr pcm, IntPtr @params, out uint format);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat_last")]
-        internal static extern int SoundPcmHwParamsSetSubformatLast(IntPtr pcm, IntPtr @params, out SoundPcmSubformat format);
+        internal static extern int SoundPcmHwParamsSetSubformatLast(IntPtr pcm, IntPtr @params, out uint format);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_subformat_mask")]
         internal static extern int SoundPcmHwParamsSetSubformatMask(IntPtr pcm, IntPtr @params, IntPtr mask);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_subformat_mask")]
-        internal static extern void SoundPcmHwParamsGetSubformatMask(IntPtr @params, IntPtr mask);
+        internal static extern void SoundPcmHwParamsGetSubformatMask(IntPtr @params, out IntPtr mask);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_channels")]
         internal static extern int SoundPcmHwParamsGetChannels(IntPtr @params, out uint val);

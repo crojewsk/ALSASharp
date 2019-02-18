@@ -103,4 +103,49 @@ namespace ALSASharp
             return new SoundPcmFormatMask(ptr);
         }
     }
+
+    public class SoundPcmSubformatParam : SoundPcmHwMaskParam
+    {
+        internal SoundPcmSubformatParam(IntPtr handle)
+            : base(handle)
+        {
+        }
+
+        public override int Get(out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsGetSubformat(owner, out value);
+        }
+
+        public override int Test(SoundPcm pcm, uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsTestSubformat(pcm.handle, owner, value);
+        }
+
+        public override int Set(SoundPcm pcm, uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetSubformat(pcm.handle, owner, value);
+        }
+
+        public override int SetFirst(SoundPcm pcm, out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetSubformatFirst(pcm.handle, owner, out value);
+        }
+
+        public override int SetLast(SoundPcm pcm, out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetSubformatLast(pcm.handle, owner, out value);
+        }
+
+        public override int SetMask(SoundPcm pcm, UnmanagedObject mask)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetSubformatMask(pcm.handle, owner, mask.handle);
+        }
+
+        public override UnmanagedObject GetMask()
+        {
+            IntPtr handle;
+            SoundNativeMethods.SoundPcmHwParamsGetSubformatMask(owner, out handle);
+            return new SoundPcmSubformatMask(handle);
+        }
+    }
 }
