@@ -532,25 +532,25 @@ namespace ALSASharp
         internal static extern void SoundPcmHwParamsCopy(IntPtr dst, IntPtr src);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_access")]
-        internal static extern int SoundPcmHwParamsGetAccess(IntPtr @params, out SoundPcmAccess val);
+        internal static extern int SoundPcmHwParamsGetAccess(IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_test_access")]
-        internal static extern int SoundPcmHwParamsTestAccess(IntPtr pcm, IntPtr @params, SoundPcmAccess val);
+        internal static extern int SoundPcmHwParamsTestAccess(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access")]
-        internal static extern int SoundPcmHwParamsSetAccess(IntPtr pcm, IntPtr @params, SoundPcmAccess val);
+        internal static extern int SoundPcmHwParamsSetAccess(IntPtr pcm, IntPtr @params, uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access_first")]
-        internal static extern int SoundPcmHwParamsSetAccessFirst(IntPtr pcm, IntPtr @params, out SoundPcmAccess val);
+        internal static extern int SoundPcmHwParamsSetAccessFirst(IntPtr pcm, IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access_last")]
-        internal static extern int SoundPcmHwParamsSetAccessLast(IntPtr pcm, IntPtr @params, out SoundPcmAccess val);
+        internal static extern int SoundPcmHwParamsSetAccessLast(IntPtr pcm, IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_access_mask")]
         internal static extern int SoundPcmHwParamsSetAccessMask(IntPtr pcm, IntPtr @params, IntPtr mask);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_access_mask")]
-        internal static extern int SoundPcmHwParamsGetAccessMask(IntPtr @params, IntPtr mask);
+        internal static extern int SoundPcmHwParamsGetAccessMask(IntPtr @params, out IntPtr mask);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_format")]
         internal static extern int SoundPcmHwParamsGetFormat(IntPtr @params, out SoundPcmFormat val);
