@@ -91,4 +91,72 @@ namespace ALSASharp
             throw new NotSupportedException();
         }
     }
+
+    public class SoundPcmRateParam : SoundPcmHwIntervalParam
+    {
+        internal SoundPcmRateParam(IntPtr handle)
+            : base(handle)
+        {
+        }
+
+        public override int Get(out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsGetRate(owner, out value, ref dir);
+        }
+
+        public override int Test(SoundPcm pcm, uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsTestRate(pcm.handle, owner, value, dir);
+        }
+
+        public override int Set(SoundPcm pcm, uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetRate(pcm.handle, owner, value, dir);
+        }
+
+        public override int SetFirst(SoundPcm pcm, out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetRateFirst(pcm.handle, owner, out value, ref dir);
+        }
+
+        public override int SetLast(SoundPcm pcm, out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetRateLast(pcm.handle, owner, out value, ref dir);
+        }
+
+        public override int GetMin(out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsGetRateMin(owner, out value, ref dir);
+        }
+
+        public override int GetMax(out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsGetRateMax(owner, out value, ref dir);
+        }
+
+        public override int SetMin(SoundPcm pcm, ref uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetRateMin(pcm.handle, owner, ref value, ref dir);
+        }
+
+        public override int SetMax(SoundPcm pcm, ref uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetRateMax(pcm.handle, owner, ref value, ref dir);
+        }
+
+        public override int SetMinMax(SoundPcm pcm, ref uint min, ref uint max, int mindir = 0, int maxdir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetRateMinMax(pcm.handle, owner, ref min, ref mindir, ref max, ref maxdir);
+        }
+
+        public override int SetNear(SoundPcm pcm, ref uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetRateNear(pcm.handle, owner, ref value, ref dir);
+        }
+
+        public override int SetInteger(SoundPcm pcm)
+        {
+            throw new NotSupportedException();
+        }
+    }
 }

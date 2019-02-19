@@ -655,10 +655,10 @@ namespace ALSASharp
         internal static extern int SoundPcmHwParamsSetRateNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_first")]
-        internal static extern int SoundPcmHwParamsSetRateFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+        internal static extern int SoundPcmHwParamsSetRateFirst(IntPtr pcm, IntPtr @params, out uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_last")]
-        internal static extern int SoundPcmHwParamsSetRateLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+        internal static extern int SoundPcmHwParamsSetRateLast(IntPtr pcm, IntPtr @params, out uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_rate_resample")]
         internal static extern int SoundPcmHwParamsSetRateResample(IntPtr pcm, IntPtr @params, uint val);
