@@ -159,4 +159,72 @@ namespace ALSASharp
             throw new NotSupportedException();
         }
     }
+
+    public class SoundPcmPeriodTimeParam : SoundPcmHwIntervalParam
+    {
+        internal SoundPcmPeriodTimeParam(IntPtr handle)
+            : base(handle)
+        {
+        }
+
+        public override int Get(out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsGetPeriodTime(owner, out value, ref dir);
+        }
+
+        public override int Test(SoundPcm pcm, uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsTestPeriodTime(pcm.handle, owner, value, dir);
+        }
+
+        public override int Set(SoundPcm pcm, uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetPeriodTime(pcm.handle, owner, value, dir);
+        }
+
+        public override int SetFirst(SoundPcm pcm, out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetPeriodTimeFirst(pcm.handle, owner, out value, ref dir);
+        }
+
+        public override int SetLast(SoundPcm pcm, out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetPeriodTimeLast(pcm.handle, owner, out value, ref dir);
+        }
+
+        public override int GetMin(out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsGetPeriodTimeMin(owner, out value, ref dir);
+        }
+
+        public override int GetMax(out uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsGetPeriodTimeMax(owner, out value, ref dir);
+        }
+
+        public override int SetMin(SoundPcm pcm, ref uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetPeriodTimeMin(pcm.handle, owner, ref value, ref dir);
+        }
+
+        public override int SetMax(SoundPcm pcm, ref uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetPeriodTimeMax(pcm.handle, owner, ref value, ref dir);
+        }
+
+        public override int SetMinMax(SoundPcm pcm, ref uint min, ref uint max, int mindir = 0, int maxdir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetPeriodTimeMinMax(pcm.handle, owner, ref min, ref mindir, ref max, ref maxdir);
+        }
+
+        public override int SetNear(SoundPcm pcm, ref uint value, int dir = 0)
+        {
+            return SoundNativeMethods.SoundPcmHwParamsSetPeriodTimeNear(pcm.handle, owner, ref value, ref dir);
+        }
+
+        public override int SetInteger(SoundPcm pcm)
+        {
+            throw new NotSupportedException();
+        }
+    }
 }
