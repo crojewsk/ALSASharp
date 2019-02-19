@@ -622,10 +622,10 @@ namespace ALSASharp
         internal static extern int SoundPcmHwParamsSetChannelsNear(IntPtr pcm, IntPtr @params, ref uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_first")]
-        internal static extern int SoundPcmHwParamsSetChannelsFirst(IntPtr pcm, IntPtr @params, ref uint val);
+        internal static extern int SoundPcmHwParamsSetChannelsFirst(IntPtr pcm, IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_channels_last")]
-        internal static extern int SoundPcmHwParamsSetChannelsLast(IntPtr pcm, IntPtr @params, ref uint val);
+        internal static extern int SoundPcmHwParamsSetChannelsLast(IntPtr pcm, IntPtr @params, out uint val);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_rate")]
         internal static extern int SoundPcmHwParamsGetRate(IntPtr @params, out uint val,  ref int dir);
