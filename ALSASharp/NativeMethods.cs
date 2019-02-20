@@ -739,10 +739,10 @@ namespace ALSASharp
         internal static extern int SoundPcmHwParamsSetPeriodSizeNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_first")]
-        internal static extern int SoundPcmHwParamsSetPeriodSizeFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+        internal static extern int SoundPcmHwParamsSetPeriodSizeFirst(IntPtr pcm, IntPtr @params, out uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_last")]
-        internal static extern int SoundPcmHwParamsSetPeriodSizeLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+        internal static extern int SoundPcmHwParamsSetPeriodSizeLast(IntPtr pcm, IntPtr @params, out uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_period_size_integer")]
         internal static extern int SoundPcmHwParamsSetPeriodSizeInteger(IntPtr pcm, IntPtr @params);
