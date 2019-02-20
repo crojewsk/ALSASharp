@@ -811,10 +811,10 @@ namespace ALSASharp
         internal static extern int SoundPcmHwParamsSetBufferTimeNear(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_first")]
-        internal static extern int SoundPcmHwParamsSetBufferTimeFirst(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+        internal static extern int SoundPcmHwParamsSetBufferTimeFirst(IntPtr pcm, IntPtr @params, out uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_set_buffer_time_last")]
-        internal static extern int SoundPcmHwParamsSetBufferTimeLast(IntPtr pcm, IntPtr @params, ref uint val, ref int dir);
+        internal static extern int SoundPcmHwParamsSetBufferTimeLast(IntPtr pcm, IntPtr @params, out uint val, ref int dir);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_get_buffer_size")]
         internal static extern int SoundPcmHwParamsGetBufferSize(IntPtr @params, out uint val);
