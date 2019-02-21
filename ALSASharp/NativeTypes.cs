@@ -27,6 +27,15 @@ namespace ALSASharp
         RW_NONINTERLEAVED     // snd_pcm_readn/snd_pcm_writen access
     }
 
+    // snd_ctl_type_t
+    public enum SoundControlType
+    {
+        Hardware,      // Kernel level CTL
+        SharedMemory,  // Shared memory client CTL
+        INET,          // INET client CTL (not yet implemented)
+        External       // External control plugin
+    }
+
     // snd_pcm_format_t
     public enum SoundPcmFormat
     {
