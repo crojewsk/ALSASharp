@@ -36,6 +36,18 @@ namespace ALSASharp
         External       // External control plugin
     }
 
+    // snd_ctl_elem_iface_t
+    public enum SoundControlElementIface
+    {
+        CARD = 0,   // Card level
+        HWDEP,      // Hardware dependent device
+        MIXER,      // Mixer
+        PCM,        // PCM
+        RAWMIDI,    // RawMidi
+        TIMER,      // Timer
+        SEQUENCER,  // Sequencer
+    }
+
     // snd_pcm_format_t
     public enum SoundPcmFormat
     {
