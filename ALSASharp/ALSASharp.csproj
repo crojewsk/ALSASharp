@@ -47,6 +47,7 @@
     <Compile Include="UnmanagedObject.cs" />
     <Compile Include="SoundPcmHwMaskParam.cs" />
     <Compile Include="SoundPcmHwIntervalParam.cs" />
+    <Compile Include="SoundControlElementId.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
