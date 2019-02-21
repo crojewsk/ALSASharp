@@ -20,11 +20,11 @@ namespace ALSASharp
     // snd_pcm_access_t
     public enum SoundPcmAccess
     {
-        SND_PCM_ACCESS_MMAP_INTERLEAVED,     // mmap access with simple interleaved channels
-        SND_PCM_ACCESS_MMAP_NONINTERLEAVED,  // mmap access with simple non interleaved channels
-        SND_PCM_ACCESS_MMAP_COMPLEX,         // mmap access with complex placement
-        SND_PCM_ACCESS_RW_INTERLEAVED,       // snd_pcm_readi/snd_pcm_writei access
-        SND_PCM_ACCESS_RW_NONINTERLEAVED     // snd_pcm_readn/snd_pcm_writen access
+        MMAP_INTERLEAVED,     // mmap access with simple interleaved channels
+        MMAP_NONINTERLEAVED,  // mmap access with simple non interleaved channels
+        MMAP_COMPLEX,         // mmap access with complex placement
+        RW_INTERLEAVED,       // snd_pcm_readi/snd_pcm_writei access
+        RW_NONINTERLEAVED     // snd_pcm_readn/snd_pcm_writen access
     }
 
     // snd_pcm_format_t
