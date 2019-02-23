@@ -48,6 +48,12 @@ namespace ALSASharp
         SEQUENCER,  // Sequencer
     }
 
+    // snd_ctl_event_type_t
+    public enum SoundControlEventType
+    {
+        ELEM  // Elements related event
+    }
+
     // snd_pcm_format_t
     public enum SoundPcmFormat
     {
