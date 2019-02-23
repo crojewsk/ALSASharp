@@ -50,6 +50,7 @@
     <Compile Include="SoundControlElementId.cs" />
     <Compile Include="SoundControlElementList.cs" />
     <Compile Include="SoundControlEvent.cs" />
+    <Compile Include="SoundControlElementInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
