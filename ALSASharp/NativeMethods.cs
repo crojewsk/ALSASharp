@@ -51,6 +51,50 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_ctl_pcm_info")]
         internal static extern int SoundControlPcmInfo(IntPtr ctl, IntPtr info);
 
+        // SoundControlEvent
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_sizeof")]
+        internal static extern uint SoundControlEventSizeOf();
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_malloc")]
+        internal static extern int SoundControlEventMalloc(out IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_free")]
+        internal static extern void SoundControlEventFree(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_clear")]
+        internal static extern void SoundControlEventClear(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_copy")]
+        internal static extern void SoundControlEventCopy(IntPtr dst, IntPtr src);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_get_type")]
+        internal static extern SoundControlEventType SoundControlEventGetType(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_mask")]
+        internal static extern uint SoundControlEventElementGetMask(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_id")]
+        internal static extern void SoundControlEventElementGetId(IntPtr obj, out IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_numid")]
+        internal static extern uint SoundControlEventElementGetNumId(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_interface")]
+        internal static extern SoundControlElementIface SoundControlEventElementGetInterface(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_device")]
+        internal static extern uint SoundControlEventElementGetDevice(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_subdevice")]
+        internal static extern uint SoundControlEventElementGetSubdevice(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_name")]
+        internal static extern IntPtr SoundControlEventElementGetName(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_elem_get_index")]
+        internal static extern uint SoundControlEventElementGetIndex(IntPtr obj);
+
         // SoundControlElementId
 
         [DllImport("asound", EntryPoint = "snd_ctl_elem_id_sizeof")]

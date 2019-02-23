@@ -49,6 +49,7 @@
     <Compile Include="SoundPcmHwIntervalParam.cs" />
     <Compile Include="SoundControlElementId.cs" />
     <Compile Include="SoundControlElementList.cs" />
+    <Compile Include="SoundControlEvent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
