@@ -54,6 +54,18 @@ namespace ALSASharp
         ELEM  // Elements related event
     }
 
+    // snd_ctl_elem_type_t
+    public enum SoundControlElementType
+    {
+        NONE,        // Invalid type
+        BOOLEAN,     // Boolean contents
+        INTEGER,     // Integer contents
+        ENUMERATED,  // Enumerated contents
+        BYTES,       // Bytes contents
+        IEC958,      // IEC958 (S/PDIF) setting content
+        INTEGER64    // 64-bit integer contents
+    }
+
     // snd_pcm_format_t
     public enum SoundPcmFormat
     {
