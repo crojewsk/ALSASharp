@@ -89,6 +89,24 @@ namespace ALSASharp
             return Marshal.PtrToStringAnsi(ptr);
         }
 
+        public static string GetName(this SoundControlElementType type)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundControlElementTypeName(type);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetName(this SoundControlElementIface iface)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundControlElementIfaceName(iface);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
+        public static string GetName(this SoundControlEventType type)
+        {
+            IntPtr ptr = SoundNativeMethods.SoundControlEventTypeName(type);
+            return Marshal.PtrToStringAnsi(ptr);
+        }
+
         public static bool IsSigned(this SoundPcmFormat format)
         {
             int ret = SoundNativeMethods.SoundPcmFormatSigned(format);

@@ -8,6 +8,15 @@ namespace ALSASharp
     /// </summary>
     public static class SoundNativeMethods
     {
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_type_name")]
+        internal static extern IntPtr SoundControlElementTypeName(SoundControlElementType val);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_iface_name")]
+        internal static extern IntPtr SoundControlElementIfaceName(SoundControlElementIface val);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_event_type_name")]
+        internal static extern IntPtr SoundControlEventTypeName(SoundControlEventType val);
+
         // SoundCard
 
         [DllImport("asound", EntryPoint = "snd_card_next")]
