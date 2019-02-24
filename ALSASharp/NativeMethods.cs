@@ -31,13 +31,76 @@ namespace ALSASharp
         internal static extern int SoundControlClose(IntPtr ctl);
 
         [DllImport("asound", EntryPoint = "snd_ctl_card_info")]
-        internal static extern int SoundControlCardInfo(IntPtr ctl, IntPtr info);
+        internal static extern int SoundControlCardInfo(IntPtr ctl, out IntPtr info);
 
         [DllImport("asound", EntryPoint = "snd_ctl_pcm_next_device")]
         internal static extern int SoundControlPcmNextDevice(IntPtr ctl, out int device);
 
         [DllImport("asound", EntryPoint = "snd_ctl_pcm_info")]
         internal static extern int SoundControlPcmInfo(IntPtr ctl, IntPtr info);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_nonblock")]
+        internal static extern int SoundControlNonblock(IntPtr ctl, int nonblock);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_poll_descriptors_count")]
+        internal static extern int SoundControlPollDescriptorsCount(IntPtr ctl);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_subscribe_events")]
+        internal static extern int SoundControlSubscribeEvents(IntPtr ctl, int subscribe);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_list")]
+        internal static extern int SoundControlElementList(IntPtr ctl, out IntPtr list);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_info")]
+        internal static extern int SoundControlElementInfo(IntPtr ctl, out IntPtr info);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_read")]
+        internal static extern int SoundControlElementRead(IntPtr ctl, out IntPtr data);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_write")]
+        internal static extern int SoundControlElementWrite(IntPtr ctl, out IntPtr data);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_lock")]
+        internal static extern int SoundControlElementLock(IntPtr ctl, out IntPtr id);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_unlock")]
+        internal static extern int SoundControlElementUnlock(IntPtr ctl, out IntPtr id);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_tlv_read")]
+        internal static extern int SoundControlElementTLVRead(IntPtr ctl, IntPtr id, uint[] tlv, uint tlvSize);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_tlv_write")]
+        internal static extern int SoundControlElementTLVWrite(IntPtr ctl, IntPtr id, uint[] tlv);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_elem_tlv_command")]
+        internal static extern int SoundControlElementTLVCommand(IntPtr ctl, IntPtr id, uint[] tlv);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_set_power_state")]
+        internal static extern int SoundControlSetPowerState(IntPtr ctl, uint state);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_get_power_state")]
+        internal static extern int SoundControlGetPowerState(IntPtr ctl, out uint state);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_read")]
+        internal static extern int SoundControlRead(IntPtr ctl, IntPtr evt);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_wait")]
+        internal static extern int SoundControlWait(IntPtr ctl, int timeout);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_name")]
+        internal static extern IntPtr SoundControlName(IntPtr ctl);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_type")]
+        internal static extern SoundControlType SoundControlType(IntPtr ctl);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_get_dB_range")]
+        internal static extern int SoundControlGetdBRange(IntPtr ctl, ref IntPtr id, out int min, out int max);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_convert_to_dB")]
+        internal static extern int SoundControlConvertTodB(IntPtr ctl, ref IntPtr id, int volume, out int gain);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_convert_from_dB")]
+        internal static extern int SoundControlConvertFromdB(IntPtr ctl, ref IntPtr id, int dBGain, out int value, int xdir);
 
         // SoundControlEvent
 
