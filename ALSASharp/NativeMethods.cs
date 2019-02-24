@@ -33,18 +33,6 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_ctl_card_info")]
         internal static extern int SoundControlCardInfo(IntPtr ctl, IntPtr info);
 
-        [DllImport("asound", EntryPoint = "snd_ctl_card_info_malloc")]
-        internal static extern int SoundControlCardInfoMalloc(out IntPtr ptr);
-
-        [DllImport("asound", EntryPoint = "snd_ctl_card_info_free")]
-        internal static extern void SoundControlCardInfoFree(IntPtr ptr);
-
-        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_id")]
-        internal static extern IntPtr SoundControlCardInfoGetId(IntPtr ctl);
-
-        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_name")]
-        internal static extern IntPtr SoundControlCardInfoGetName(IntPtr ctl);
-      
         [DllImport("asound", EntryPoint = "snd_ctl_pcm_next_device")]
         internal static extern int SoundControlPcmNextDevice(IntPtr ctl, out int device);
 
@@ -147,6 +135,44 @@ namespace ALSASharp
 
         [DllImport("asound", EntryPoint = "snd_ctl_elem_id_set_index")]
         internal static extern void SoundControlElementIdSetIndex(IntPtr obj, uint val);
+
+        // SoundControlCardInfo
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_sizeof")]
+        internal static extern uint SoundControlCardInfoSizeOf();
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_malloc")]
+        internal static extern int SoundControlCardInfoMalloc(out IntPtr ptr);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_free")]
+        internal static extern void SoundControlCardInfoFree(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_clear")]
+        internal static extern void SoundControlCardInfoClear(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_copy")]
+        internal static extern void SoundControlCardInfoCopy(IntPtr dst, IntPtr src);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_card")]
+        internal static extern int SoundControlCardInfoGetCard(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_id")]
+        internal static extern IntPtr SoundControlCardInfoGetId(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_driver")]
+        internal static extern IntPtr SoundControlCardInfoGetDriver(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_name")]
+        internal static extern IntPtr SoundControlCardInfoGetName(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_longname")]
+        internal static extern IntPtr SoundControlCardInfoGetLongname(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_mixername")]
+        internal static extern IntPtr SoundControlCardInfoGetMixername(IntPtr obj);
+
+        [DllImport("asound", EntryPoint = "snd_ctl_card_info_get_components")]
+        internal static extern IntPtr SoundControlCardInfoGetComponents(IntPtr obj);
 
         // SoundControlElementList
 
