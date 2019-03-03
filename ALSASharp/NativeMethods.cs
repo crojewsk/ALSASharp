@@ -974,11 +974,11 @@ namespace ALSASharp
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_can_disable_period_wakeup")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool SoundPcmHwParamsCanPeriodWakeup(IntPtr @params);
+        internal static extern bool SoundPcmHwParamsCanDisablePeriodWakeup(IntPtr @params);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_supports_audio_wallclock_ts")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool SoundPcmHwParamsSupportsAudioWallClockTs(IntPtr @params);
+        internal static extern bool SoundPcmHwParamsSupportsAudioWallclockTs(IntPtr @params);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_SupportsAudioTsType")]
         [return: MarshalAs(UnmanagedType.Bool)]

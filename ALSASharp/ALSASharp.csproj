@@ -53,6 +53,7 @@
     <Compile Include="SoundControlElementInfo.cs" />
     <Compile Include="SoundControlElementValue.cs" />
     <Compile Include="SoundControlCardInfo.cs" />
+    <Compile Include="SoundPcmHwParams.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
