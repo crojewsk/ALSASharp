@@ -352,4 +352,13 @@ namespace ALSASharp
             }
         }
     }
+
+    // SNDRV_PCM_HW_PARAMS_XXX
+    [Flags]
+    public enum SoundPcmHwParamsFlag
+    {
+        NORESAMPLE       = 1,  // avoid rate resampling
+        EXPORT_BUFFER    = 2,  // export buffer
+        NO_PERIOD_WAKEUP = 4   // disable period wakeups
+    }
 }
