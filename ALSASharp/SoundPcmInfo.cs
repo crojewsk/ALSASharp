@@ -64,10 +64,9 @@ namespace ALSASharp
             }
         }
 
-        public SoundCard GetDevice()
+        public uint GetDevice()
         {
-            uint dev = SoundNativeMethods.SoundPcmInfoGetDevice(handle);
-			return new SoundCard(dev);
+            return SoundNativeMethods.SoundPcmInfoGetDevice(handle);
         }
 
         public uint GetSubdevice()
@@ -82,12 +81,6 @@ namespace ALSASharp
 			{
 				return SoundNativeMethods.SoundPcmInfoGetStream(handle);
 			}
-        }
-
-        public SoundCard GetCard()
-        {
-            uint dev = SoundNativeMethods.SoundPcmInfoGetDevice(handle);
-            return new SoundCard(dev);
         }
 
         public string GetId()
@@ -148,12 +141,9 @@ namespace ALSASharp
             }
         }
 
-        public void SetDevice(SoundCard card)
+        public void SetDevice(uint val)
         {
-			if (card == null)
-				throw new ArgumentNullException("card");
-
-            SoundNativeMethods.SoundPcmInfoSetDevice(handle, card.Id);
+            SoundNativeMethods.SoundPcmInfoSetDevice(handle, val);
         }
 
         public void SetSubdevice(uint subdev)

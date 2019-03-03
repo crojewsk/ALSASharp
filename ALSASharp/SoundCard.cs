@@ -6,11 +6,38 @@ namespace ALSASharp
 {
     public class SoundCard
     {
-        public readonly uint Id;
+        public readonly int Id;
 
-        public SoundCard(uint dev)
+        public SoundCard(int dev)
         {
 			Id = dev;
+        }
+
+        public bool Load()
+        {
+            return SoundNativeMethods.SoundCardLoad(Id);
+        }
+
+        public int GetIndex(string name)
+        {
+            IntPtr ptr = Marshal.StringToHGlobalAnsi(name);
+            return SoundNativeMethods.SoundCardGetIndex(ptr);
+        }
+
+        public int GetName(out string name)
+        {
+            IntPtr ptr;
+            int ret = SoundNativeMethods.SoundCardGetName(Id, out ptr);
+            name = Marshal.PtrToStringAnsi(ptr);
+            return ret;
+        }
+
+        public int GetLongname(out string name)
+        {
+            IntPtr ptr;
+            int ret = SoundNativeMethods.SoundCardGetLongname(Id, out ptr);
+            name = Marshal.PtrToStringAnsi(ptr);
+            return ret;
         }
     }
 

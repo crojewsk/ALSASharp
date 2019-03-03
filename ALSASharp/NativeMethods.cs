@@ -19,8 +19,20 @@ namespace ALSASharp
 
         // SoundCard
 
+        [DllImport("asound", EntryPoint = "snd_card_load")]
+        internal static extern bool SoundCardLoad(int card);
+
         [DllImport("asound", EntryPoint = "snd_card_next")]
         internal static extern int SoundCardNext(out int card);
+
+        [DllImport("asound", EntryPoint = "snd_card_get_index")]
+        internal static extern int SoundCardGetIndex(IntPtr name);
+
+        [DllImport("asound", EntryPoint = "snd_card_get_name")]
+        internal static extern int SoundCardGetName(int card, out IntPtr name);
+
+        [DllImport("asound", EntryPoint = "snd_card_get_longname")]
+        internal static extern int SoundCardGetLongname(int card, out IntPtr name);
 
         [DllImport("asound", EntryPoint = "snd_device_name_hint")]
         internal static extern int SoundDeviceNameHint(int card, [MarshalAs(UnmanagedType.LPStr)]string iface, out IntPtr hints);
