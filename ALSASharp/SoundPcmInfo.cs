@@ -19,13 +19,23 @@ namespace ALSASharp
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ALSASharp.SoundPcmInfo"/> class.
         /// </summary>
-        public SoundPcmInfo()
+        public SoundPcmInfo(IntPtr ptr)
         {
-			int err = SoundNativeMethods.SoundPcmInfoMalloc(out handle);
-            if (handle == IntPtr.Zero)
+            if (ptr == IntPtr.Zero)
             {
-                throw new OutOfMemoryException(string.Format("err: {0}", err));
+                SoundNativeMethods.SoundPcmInfoMalloc(out handle);
+                if (handle == IntPtr.Zero)
+                    throw new OutOfMemoryException();
             }
+            else
+            {
+                handle = ptr;
+            }
+        }
+
+        public SoundPcmInfo()
+            : this(IntPtr.Zero)
+        {
         }
 
         /// <summary>

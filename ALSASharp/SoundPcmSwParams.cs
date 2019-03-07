@@ -9,14 +9,24 @@ namespace ALSASharp
         /// <summary>
         /// Initializes a new instance of the <see cref="T:ALSASharp.SoundPcmSwParams"/> class.
         /// </summary>
-		public SoundPcmSwParams()
-		{
-			SoundNativeMethods.SoundPcmSwParamsMalloc(out handle);
-			if (handle == IntPtr.Zero)
-			{
-				throw new OutOfMemoryException();
-			}
-		}
+        public SoundPcmSwParams(IntPtr ptr)
+        {
+            if (ptr == IntPtr.Zero)
+            {
+                SoundNativeMethods.SoundPcmSwParamsMalloc(out handle);
+                if (handle == IntPtr.Zero)
+                    throw new OutOfMemoryException();
+            }
+            else
+            {
+                handle = ptr;
+            }
+        }
+
+        public SoundPcmSwParams()
+            : this(IntPtr.Zero)
+        {
+        }
 
         /// <summary>
         /// Releases all resource used by the <see cref="T:ALSASharp.SoundPcmSwParams"/> object.

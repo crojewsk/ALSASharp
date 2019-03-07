@@ -14,13 +14,23 @@ namespace ALSASharp
         /// Initializes a new instance of the <see cref="T:ALSASharp.SoundPcmStatus"/> class.
         /// </summary>
         /// <remarks>Internally represented by snd_pcm_status32, sound/core/pcm_compat.c</remarks>
-        public SoundPcmStatus()
+        public SoundPcmStatus(IntPtr ptr)
         {
-            SoundNativeMethods.SoundPcmStatusMalloc(out handle);
-            if (handle == IntPtr.Zero)
+            if (ptr == IntPtr.Zero)
             {
-                throw new OutOfMemoryException();
+                SoundNativeMethods.SoundPcmStatusMalloc(out handle);
+                if (handle == IntPtr.Zero)
+                    throw new OutOfMemoryException();
             }
+            else
+            {
+                handle = ptr;
+            }
+        }
+
+        public SoundPcmStatus()
+            : this(IntPtr.Zero)
+        {
         }
 
         /// <summary>

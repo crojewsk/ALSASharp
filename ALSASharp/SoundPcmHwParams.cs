@@ -6,13 +6,23 @@ namespace ALSASharp
     {
         internal IntPtr handle;
 
-        public SoundPcmHwParams()
+        public SoundPcmHwParams(IntPtr ptr)
         {
-            SoundNativeMethods.SoundPcmHwParamsMalloc(out handle);
-            if (handle == IntPtr.Zero)
+            if (ptr == IntPtr.Zero)
             {
-                throw new OutOfMemoryException();
+                SoundNativeMethods.SoundPcmHwParamsMalloc(out handle);
+                if (handle == IntPtr.Zero)
+                    throw new OutOfMemoryException();
             }
+            else
+            {
+                handle = ptr;
+            }
+        }
+
+        public SoundPcmHwParams()
+            : this(IntPtr.Zero)
+        {
         }
 
         public void Dispose()
