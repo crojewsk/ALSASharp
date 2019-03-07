@@ -10,6 +10,14 @@ namespace ALSASharp
         Capture   // Capture stream
     }
 
+    // pcm open mode
+    public enum SoundPcmOpenMode
+    {
+        NONE = 0,
+        NONBLOCK,
+        ASYNC
+    }
+
     public static class DeviceNameHints
     {
         public const string NAME = "NAME";  // name of device
