@@ -537,6 +537,143 @@ namespace ALSASharp
         [DllImport("asound", EntryPoint = "snd_ctl_elem_set_bytes")]
         internal static extern void SoundControlElementSetBytes(IntPtr obj, IntPtr data, uint size);
 
+        // SoundPcm
+
+        [DllImport("asound", EntryPoint = "snd_pcm_open")]
+        internal static extern int SoundPcmOpen(out IntPtr pcm, string name, SoundPcmStream stream, SoundPcmOpenMode mode);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_open_lconf")]
+        internal static extern int SoundPcmOpenLconf(out IntPtr pcm, string name, SoundPcmStream stream, SoundPcmOpenMode mode, IntPtr lconf);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_open_fallback")]
+        internal static extern int SoundPcmOpenFallback(out IntPtr pcm, IntPtr root, string name, string origName, SoundPcmStream stream, SoundPcmOpenMode mode);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_close")]
+        internal static extern int SoundPcmClose(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_name")]
+        internal static extern IntPtr SoundPcmName(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_type")]
+        internal static extern SoundPcmType SoundPcmType(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_stream")]
+        internal static extern SoundPcmStream SoundPcmStream(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_nonblock")]
+        internal static extern int SoundPcmNonblock(IntPtr pcm, int nonblock);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_info")]
+        internal static extern int SoundPcmInfo(IntPtr pcm, IntPtr info);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params_current")]
+        internal static extern int SoundPcmHwParamsCurrent(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_params")]
+        internal static extern int SoundPcmHwParams(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hw_free")]
+        internal static extern int SoundPcmHwFree(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_sw_params_current")]
+        internal static extern int SoundPcmSwParamsCurrent(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_sw_params")]
+        internal static extern int SoundPcmSwParams(IntPtr pcm, IntPtr @params);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_prepare")]
+        internal static extern int SoundPcmPrepare(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_reset")]
+        internal static extern int SoundPcmReset(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_status")]
+        internal static extern int SoundPcmStatus(IntPtr pcm, IntPtr status);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_start")]
+        internal static extern int SoundPcmStart(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_drop")]
+        internal static extern int SoundPcmDrop(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_drain")]
+        internal static extern int SoundPcmDrain(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_pause")]
+        internal static extern int SoundPcmPause(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_state")]
+        internal static extern SoundPcmState SoundPcmState(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_hwsync")]
+        internal static extern int SoundPcmHwSync(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_delay")]
+        internal static extern int SoundPcmDelay(IntPtr pcm, out int delayp);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_resume")]
+        internal static extern int SoundPcmResume(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_htimestamp")]
+        internal static extern int SoundPcmHTimestamp(IntPtr pcm, out int avail, IntPtr tstamp);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_avail")]
+        internal static extern int SoundPcmAvail(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_avail_update")]
+        internal static extern int SoundPcmAvailUpdate(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_avail_delay")]
+        internal static extern int SoundPcmAvailDelay(IntPtr pcm, out int availp, out int delayp);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_rewindable")]
+        internal static extern int SoundPcmRewindable(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_rewind")]
+        internal static extern int SoundPcmRewind(IntPtr pcm, int frames);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_forwardable")]
+        internal static extern int SoundPcmForwardable(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_forward")]
+        internal static extern int SoundPcmForward(IntPtr pcm, int frames);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_writei")]
+        internal static extern int SoundPcmWriteI(IntPtr pcm, IntPtr buffer, int size);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_readi")]
+        internal static extern int SoundPcmReadI(IntPtr pcm, IntPtr buffer, int size);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_writen")]
+        internal static extern int SoundPcmWriteN(IntPtr pcm, out IntPtr bufs, int size);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_readn")]
+        internal static extern int SoundPcmReadN(IntPtr pcm, out IntPtr bufs, int size);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_wait")]
+        internal static extern int SoundPcmWait(IntPtr pcm, int timeout);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_link")]
+        internal static extern int SoundPcmLink(IntPtr pcm1, IntPtr pcm2);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_unlink")]
+        internal static extern int SoundPcmUnlink(IntPtr pcm);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_recover")]
+        internal static extern int SoundPcmRecover(IntPtr pcm, int err, int silent);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_set_params")]
+        internal static extern int SoundPcmSetParams(IntPtr pcm, SoundPcmFormat format, SoundPcmAccess access, uint channels, uint rate, int softResample, uint latency);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_get_params")]
+        internal static extern int SoundPcmGetParams(IntPtr pcm, out int bufferSize, out int periodSize);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_mmap_begin")]
+        internal static extern int SoundPcmMmapBegin(IntPtr pcm, out IntPtr areas, out uint offset, ref uint frames);
+
+        [DllImport("asound", EntryPoint = "snd_pcm_mmap_commit")]
+        internal static extern int SoundPcmMmapCommit(IntPtr pcm, uint offset, uint frames);
+
         // SoundPcmInfo
 
         [DllImport("asound", EntryPoint = "snd_pcm_info_sizeof")]
@@ -930,9 +1067,6 @@ namespace ALSASharp
         internal static extern int SoundPcmStatusGetOverrange(IntPtr obj);
 
         // SoundPcmHwParams
-
-        [DllImport("asound", EntryPoint = "snd_pcm_hw_params")]
-        internal static extern int SoundPcmHwParams(IntPtr pcm, IntPtr @params);
 
         [DllImport("asound", EntryPoint = "snd_pcm_hw_params_dump")]
         internal static extern int SoundPcmHwParamsDump(IntPtr @params, IntPtr @out);
